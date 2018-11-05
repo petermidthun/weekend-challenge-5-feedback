@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM feedback ORDER BY id;`;
+    const sqlText = `SELECT * FROM feedback ORDER BY id DESC;`;
     pool.query(sqlText)
         .then((result) => {
             console.log(`Got stuff back from the database`, result);
