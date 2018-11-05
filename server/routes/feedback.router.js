@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+//  Set up a get route
 router.get('/', (req, res) => {
     const sqlText = `SELECT * FROM feedback ORDER BY id DESC;`;
     pool.query(sqlText)
@@ -31,7 +32,7 @@ router.post('/', (req, res) => {
         })
 })
 
-//  Delete
+//  Set up a Delete route
 router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('Delete request for id', reqId);

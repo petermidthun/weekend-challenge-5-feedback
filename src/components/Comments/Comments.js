@@ -8,7 +8,7 @@ class Comments extends Component {
 
     state = emptyState;
 
-    bundleData = () => {
+    bundleData = () => {  //  Bundles the data into a nice object to POST
         let dataObject = {
             feeling: this.props.reduxState.feelingReducer[0],
             understanding: this.props.reduxState.understandingReducer[0],
@@ -20,7 +20,7 @@ class Comments extends Component {
 
     postToDatabase = (dataObject) => {
         this.setState(emptyState);
-        console.log('dataObject: ', dataObject);
+        //  console.log('dataObject: ', dataObject);
         axios({
                 method: 'POST',
                 url: '/api/feedback',
@@ -33,15 +33,12 @@ class Comments extends Component {
         
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event) => {  //  submits data to be bundled and posted
         event.preventDefault();
-        console.log('entering handlesubmit in Comments')
-        //this.props.dispatch({ type: 'ADD_FEEDBACK_COMMENTS', payload: this.state})
-
         this.postToDatabase(this.bundleData());
     }
 
-    handleChange = (event) => {
+    handleChange = (event) => {  //  updates input field on change
         this.setState({comments: event.target.value});
     }
 
