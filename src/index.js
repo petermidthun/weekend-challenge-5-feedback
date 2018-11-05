@@ -49,6 +49,10 @@ const adminReducer = (state=[], action) => {
     if (action.type === 'SET_FEEDBACK_FROM_DATABASE') {
       state= action.payload;
     } 
+    else if (action.type === 'DELETE_FEEDBACK'){
+        const matchFeedback = feedback => feedback.id !== action.payload;
+        state = state.filter(matchFeedback);
+    }
     return state;
   }
 

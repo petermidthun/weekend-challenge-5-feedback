@@ -20,7 +20,23 @@ class Admin extends Component {
     }
 
     deleteFeedback = (id) => {
-        console.log('delete employee with id: ', id);
+        //eslint-disable-next-line
+        if (confirm("Are you sure you want to delete this employee")) {
+
+                axios({
+                  method:  'DELETE',
+                  url: `/api/feedback/${id}`
+                }).then((response) => {
+                  this.getFeedback();
+                })
+                .catch((error) =>{
+                  alert('bad stuff');
+                })
+              
+        } else {
+            console.log('no delete');
+        }
+        
     }
 
     render() {
@@ -44,7 +60,7 @@ class Admin extends Component {
                             <td>{feedback.comments}</td>
                             <td>
                                 <button onClick={() => {
-                                    //this.props.dispatch({ type: 'DELETE_EMPLOYEE', payload: employee })
+                                    this.props.dispatch({ type: 'DELETE_FEEDBACK', payload: feedback.id });
                                     this.deleteFeedback(feedback.id);
                                 }
                                 }>
