@@ -2,7 +2,20 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// Setup a POST route to add a new employee to the database
+router.get('/', (req, res) => {
+    const sqlText = `SELECT * FROM feedback ORDER BY id;`;
+    pool.query(sqlText)
+        .then((result) => {
+            console.log(`Got stuff back from the database`, result);
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); // Good server always responds
+        })
+})
+
+// Setup a POST route 
 router.post('/', (req, res) => {
     const dataObject = req.body;
     const sqlText = `INSERT INTO feedback (feeling, understanding, support, comments) VALUES 
