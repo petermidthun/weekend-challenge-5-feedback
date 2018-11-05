@@ -10,6 +10,9 @@ const feelingReducer = (state = [], action) => {
     if (action.type === 'ADD_FEEDBACK_FEELING') {
         state = [...state, parseInt(action.payload.feeling)];
     }
+    else if (action.type === 'RESET_STATE') {
+        state = [];
+    }
     else {
         console.log('feelingReducer called, no action taken');
     }
@@ -20,7 +23,9 @@ const understandingReducer = (state = [], action) => {
     if (action.type === 'ADD_FEEDBACK_UNDERSTANDING') {
         state = [...state, parseInt(action.payload.understanding)];
     }
-    else {
+    else if (action.type === 'RESET_STATE') {
+        state = [];
+    }else {
         console.log('understandingReducer called, no action taken');
     }
     return state
@@ -30,7 +35,9 @@ const supportReducer = (state = [], action) => {
     if (action.type === 'ADD_FEEDBACK_SUPPORT') {
         state = [...state, parseInt(action.payload.support)];
     }
-    else {
+    else if (action.type === 'RESET_STATE') {
+        state = [];
+    }else {
         console.log('supportReducer called, no action taken');
     }
     return state

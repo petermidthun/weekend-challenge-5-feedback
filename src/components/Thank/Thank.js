@@ -3,11 +3,18 @@ import { connect } from 'react-redux';
 
 class Thank extends Component {
 
+    resetState = (event) =>{
+        event.preventDefault();
+        this.props.dispatch({ type: 'RESET_STATE'})
+        this.props.history.push('/')
+    }
+
     render() {
         return (
-        
-            <h2>Your answers have been posted to the database</h2>
-
+            <div>
+            <p> your feedback has been submitted </p>
+             <button onClick={this.resetState}> LEAVE NEW FEEDBACK </button>
+             </div>
         );
     }
 }
