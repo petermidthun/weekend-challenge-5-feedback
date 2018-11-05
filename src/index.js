@@ -6,11 +6,41 @@ import { Provider } from 'react-redux';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
 
+const feelingReducer = (state = [], action) => {
+    if (action.type === 'ADD_FEEDBACK_FEELING') {
+        state = [...state, parseInt(action.payload.feeling)];
+    }
+    else {
+        console.log('feelingReducer called, no action taken');
+    }
+    return state
+}
 
+const understandingReducer = (state = [], action) => {
+    if (action.type === 'ADD_FEEDBACK_UNDERSTANDING') {
+        state = [...state, parseInt(action.payload.understanding)];
+    }
+    else {
+        console.log('understandingReducer called, no action taken');
+    }
+    return state
+}
+
+const supportReducer = (state = [], action) => {
+    if (action.type === 'ADD_FEEDBACK_SUPPORT') {
+        state = [...state, parseInt(action.payload.support)];
+    }
+    else {
+        console.log('supportReducer called, no action taken');
+    }
+    return state
+}
 
 const storeInstance = createStore(
     combineReducers({
-
+        feelingReducer,
+        understandingReducer,
+        supportReducer
     }),
     applyMiddleware(logger) 
 )
