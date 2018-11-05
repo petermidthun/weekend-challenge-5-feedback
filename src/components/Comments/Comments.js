@@ -20,8 +20,17 @@ class Comments extends Component {
 
     postToDatabase = (dataObject) => {
         this.setState(emptyState);
-
-        this.props.history.push('/5');
+        console.log('dataObject: ', dataObject);
+        axios({
+                method: 'POST',
+                url: '/api/feedback',
+                data: dataObject
+              }).then( (response) => {
+                this.props.history.push('/5');
+              }).catch ((error) => {
+                alert('bad things');
+              })
+        
     }
 
     handleSubmit = (event) => {
