@@ -6,7 +6,7 @@ class Thank extends Component {
     render() {
         return (
         
-            <h2>How are you thank today?</h2>
+            <h2>Your answers have been posted to the database</h2>
 
         );
     }

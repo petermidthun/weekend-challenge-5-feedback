@@ -27,7 +27,7 @@ class Feeling extends Component {
                <form onSubmit={this.handleSubmit}>
                <h2>On a scale of 1 to 5, how are you feeling today?</h2>
                 <input onChange={this.handleChange} placeholder="Enter a number" />
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Next" />
             </form>
             
 

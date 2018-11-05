@@ -23,7 +23,7 @@ class Support extends Component {
             <form onSubmit={this.handleSubmit}>
             <h2>On a scale of 1 to 5, how well do you feel you are being supported?</h2>
              <input onChange={this.handleChange} placeholder="Enter a number" />
-             <input type="submit" value="Submit" />
+             <input type="submit" value="Next" />
          </form>
 
         );

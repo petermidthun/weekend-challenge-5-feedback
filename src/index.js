@@ -36,11 +36,22 @@ const supportReducer = (state = [], action) => {
     return state
 }
 
+// const commentsReducer = (state = [], action) => {
+//     if (action.type === 'ADD_FEEDBACK_COMMENTS') {
+//         state = [...state, action.payload.comments];
+//     }
+//     else {
+//         console.log('commentsReducer called, no action taken');
+//     }
+//     return state
+// }
+
 const storeInstance = createStore(
     combineReducers({
         feelingReducer,
         understandingReducer,
-        supportReducer
+        supportReducer,
+        //  commentsReducer
     }),
     applyMiddleware(logger) 
 )
